@@ -8,9 +8,9 @@ let dataArray =[];
 const getResponse= async ()=>{
    const res = await fetch(searchUrl);
       dataArray = await res.json();
-      console.log(dataArray.results);
+      
 
-      for(let i =0; i < dataArray.results.length; i++){
+      
             Object.values(dataArray).forEach(data=>{
                   //create div for movies
                   let div = document.createElement('div')
@@ -20,14 +20,13 @@ const getResponse= async ()=>{
                   h1.className.add='movie-titles'
                   h1.textContent = data.original_title;
 
-                  console.log(data.original_title) //returns 80 undefined rule
+                  console.log(data) //returns 80 undefined rule
 
                   
 
             })
       }
-      
-}
+
  
 getResponse();
 

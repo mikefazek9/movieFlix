@@ -15,12 +15,18 @@ const getResponse=()=>{
    })
    .then(data=>{
       console.log(data.results)
+
       const html = data.results.map(movies =>{
-            return `<h2 class="movie_title">${movies.original_title}</h2>`
+            return ` <div class="flex flex-col justify-center align-center columns-2 w-1/3 text-center p-4">
+            <h2 class="movie_title text-2xl font-bold pb-4">${movies.original_title}</h2>
+            <img src="https://image.tmdb.org/t/p/original/${movies.poster_path}" alt="Movie poster" class="mx-auto w-1/3 "/>
+                  <span class="overview-text">${movies.overview}</span>
+            </div>
+                  `
 
       }).join("")
       console.log(html)
-      document.querySelector(".movie_container").insertAdjacentHTML("afterbegin", html)
+      document.querySelector("#movie_container").insertAdjacentHTML("afterbegin", html)
    })
 }
 
